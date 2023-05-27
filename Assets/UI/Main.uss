@@ -1,0 +1,87 @@
+TemplateContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.title {
+    font-size: 72px;
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTHeavy%20SDF%201.asset?fileID=11400000&guid=7069371b1e33e2445b2ef4327bd8b5f6&type=2#FuturaPTHeavy SDF 1');
+    color: rgb(74, 105, 189);
+}
+
+.menu {
+    flex-grow: 0;
+    justify-content: center;
+    align-self: center;
+}
+
+.button__container {
+    flex-direction: row;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 10px;
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
+    font-size: 25px;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    -unity-text-align: middle-center;
+    background-color: rgb(255, 255, 255);
+    transition-timing-function: ease-out-cubic;
+    transition-property: scale;
+    transition-duration: 0.115s;
+}
+
+.menu__text-field {
+    padding: 10px;
+    margin: 0 0 10px 0;
+    -unity-font-definition: initial;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+
+.menu__text-field #unity-text-input {
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    -unity-text-align: middle-center;
+}
+
+.button:hover {
+    transition-property: scale;
+    transition-timing-function: ease-in-cubic;
+    transition-duration: 0.115s;
+    scale: 1.05 1.05;
+}
+
+.lobby {
+    flex-grow: 0;
+    justify-content: center;
+    align-self: center;
+}
+
+.lobby__player__container {
+    border-color: rgb(106, 137, 204);
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgb(106, 137, 204);
+    border-color: rgb(74, 105, 189);
+    height: 194px;
+}
+
+.lobby__player {
+    flex-direction: row;
+    padding: 10px;
+}
+
+.lobby__player__text {
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    -unity-text-align: middle-left;
+}

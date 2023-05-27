@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Main.uss?fileID=7433441132597879392&amp;guid=7b1c4bbe3a1832840bfb701ecc7ccee2&amp;type=3#Main" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); height: 100%; width: 100%; justify-content: center;">
+        <ui:Label text="Lobby" class="title" style="align-self: center; justify-content: center; position: absolute; top: 120px;" />
+        <ui:VisualElement class="lobby">
+            <ui:VisualElement name="LobbyPlayerContainer" class="lobby__player__container" />
+            <ui:VisualElement class="button__container" style="justify-content: center;">
+                <ui:Button text="Ready" name="ReadyButton" class="button" style="background-color: rgb(56, 173, 169);" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

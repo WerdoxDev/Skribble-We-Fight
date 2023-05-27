@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Main.uss?fileID=7433441132597879392&amp;guid=7b1c4bbe3a1832840bfb701ecc7ccee2&amp;type=3#Main" />
+    <ui:VisualElement name="LobbyPlayer" class="lobby__player" style="background-color: rgba(0, 0, 0, 0);">
+        <ui:Label text="Player #1" name="PlayerName" class="lobby__player__text" style="width: 150px; -unity-font-style: bold;" />
+        <ui:Label text="(NOT READY)" name="ReadyStatus" enable-rich-text="false" class="lobby__player__text" style="width: 120px; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+</ui:UXML>
