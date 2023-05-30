@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5b62b7e3317d3409b04263bc896fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inGameSceneName: InGame
+  gameSceneName: Game
   uiDocument: {fileID: 0}
+  lobbyPlayerAsset: {fileID: 9197481963319205126, guid: 6e70586c8cbac0e4889f84bb96f7f786, type: 3}
 --- !u!114 &9124802158860719614
 MonoBehaviour:
   m_ObjectHideFlags: 0

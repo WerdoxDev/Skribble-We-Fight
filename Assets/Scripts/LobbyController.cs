@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 public class LobbyController : NetworkBehaviour {
-    [SerializeField] private string inGameSceneName;
+    [SerializeField] private string gameSceneName;
     [SerializeField] private UIDocument uiDocument;
     [SerializeField] private VisualTreeAsset lobbyPlayerAsset;
 
@@ -15,31 +15,40 @@ public class LobbyController : NetworkBehaviour {
     private VisualElement _playersContainer;
     private Button _readyButton;
 
-    private Dictionary<ulong, bool> _clientsInLobby = new();
+    private readonly Dictionary<ulong, bool> _clientsInLobby = new();
 
     public override void OnNetworkSpawn() {
         _rootElement = uiDocument.rootVisualElement;
         _playersContainer = _rootElement.Q<VisualElement>("LobbyPlayerContainer");
         _readyButton = _rootElement.Q<Button>("ReadyButton");
 
+        _readyButton.clicked += () => {
+            bool isLocalClientReady = IsLocalClientReady();
+            _readyButton.text = !isLocalClientReady ? "Unready" : "Ready";
+            SetPlayerReadyServerRpc(NetworkManager.LocalClientId, !isLocalClientReady, false);
+        };
+
+        _clientsInLobby.Add(NetworkManager.LocalClientId, false);
+
         if (IsServer) {
             NetworkManager.OnClientConnectedCallback += OnClientConnected;
         }
 
-        UpdatePlayers();
-        UpdatePlayers();
+        UpdatePlayersUI();
 
         SceneTransitionHandler.Instance.SetSceneState(SceneTransitionHandler.SceneState.Lobby);
     }
 
-    private void UpdatePlayers() {
+    private void UpdatePlayersUI() {
         _playersContainer.Clear();
 
         int index = 0;
         foreach (KeyValuePair<ulong, bool> player in _clientsInLobby) {
             VisualElement playerElement = lobbyPlayerAsset.Instantiate().Q<VisualElement>("LobbyPlayer");
 
-            playerElement.Q<Label>("PlayerName").text = $"Player #{index + 1}";
+            playerElement.Q<Label>("PlayerName").text =
+                $"Player {index + 1} " +
+                $"{(player.Key == NetworkManager.LocalClientId ? "(you)" : player.Key == NetworkManager.ServerClientId ? "(host)" : "")}";
             playerElement.Q<Label>("ReadyStatus").text = player.Value ? "(READY)" : "(NOT READY)";
 
             _playersContainer.Add(playerElement);
@@ -47,17 +56,43 @@ public class LobbyController : NetworkBehaviour {
         }
     }
 
-    [ServerRpc]
-    private void SetPlayerReadyServerRpc(ulong clientId, bool isReady) => SetPlayerReadyClientRpc(clientId, isReady);
+    private void UpdatePlayers() {
+        foreach (KeyValuePair<ulong, bool> player in _clientsInLobby)
+            SetPlayerReadyClientRpc(player.Key, player.Value);
+
+        CheckAllPlayersReady();
+    }
+
+    private void CheckAllPlayersReady() {
+        bool allPlayersReady = _clientsInLobby.All(x => x.Value);
+
+        if (!allPlayersReady) return;
+
+        NetworkManager.Singleton.OnClientConnectedCallback -= OnClientConnected;
+
+        SceneTransitionHandler.Instance.SwitchScene(gameSceneName);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void SetPlayerReadyServerRpc(ulong clientId, bool isReady, bool exludeServer = true) =>
+        SetPlayerReadyClientRpc(clientId, isReady, exludeServer);
 
     [ClientRpc]
-    private void SetPlayerReadyClientRpc(ulong clientId, bool isReady) {
-        if (!_clientsInLobby.ContainsKey(clientId)) return;
+    private void SetPlayerReadyClientRpc(ulong clientId, bool isReady, bool exludeServer = true) {
+        if (IsServer && exludeServer) return;
+
+        if (!_clientsInLobby.ContainsKey(clientId)) _clientsInLobby.Add(clientId, isReady);
         _clientsInLobby[clientId] = isReady;
+
+        if (IsServer) CheckAllPlayersReady();
+        UpdatePlayersUI();
     }
+
+    private bool IsLocalClientReady() => _clientsInLobby[NetworkManager.LocalClientId];
 
     private void OnClientConnected(ulong clientId) {
         if (!_clientsInLobby.ContainsKey(clientId)) _clientsInLobby.Add(clientId, false);
+        UpdatePlayersUI();
         UpdatePlayers();
     }
 }

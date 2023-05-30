@@ -10,13 +10,14 @@ public class SceneTransitionHandler : MonoBehaviour {
 
     [SerializeField] private string MainMenuScene;
 
-    public enum SceneState { Init, Menu, Lobby, InGame }
+    public enum SceneState { Init, Menu, Lobby, Game }
 
     private SceneState _sceneState;
     private int _numOfClientsLoaded;
 
     public event Action<SceneState> OnSceneStateChanged;
     public event Action<ulong> OnClientSceneLoaded;
+    public event Action OnAllClientsLoaded;
 
     private void Awake() {
         if (Instance != null && Instance != this) Destroy(Instance.gameObject);
@@ -62,5 +63,7 @@ public class SceneTransitionHandler : MonoBehaviour {
     private void OnSceneLoadComplete(ulong clientId, string sceneName, LoadSceneMode loadSceneMode) {
         _numOfClientsLoaded += 1;
         OnClientSceneLoaded?.Invoke(clientId);
+
+        if (NetworkManager.Singleton.IsServer && AllClientsAreLoaded()) OnAllClientsLoaded?.Invoke();
     }
 }
