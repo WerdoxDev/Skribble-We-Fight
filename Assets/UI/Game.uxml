@@ -3,7 +3,7 @@
     <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); height: 100%; width: 100%; justify-content: center;">
         <ui:Label text="Choose A Preset" name="Title" class="title" style="align-self: center; justify-content: center; position: absolute; top: 15%;" />
         <ui:Label text="Waiting for other players..." name="StatusText" class="game__status-text" style="display: none;" />
-        <ui:Label tabindex="-1" text="Ping: 100ms" display-tooltip-when-elided="true" name="Ping" class="game__ping__label" />
+        <ui:Label tabindex="-1" text="Ping: 100ms" display-tooltip-when-elided="true" name="PingText" class="game__ping__label" />
         <ui:VisualElement name="PresetsContainer" class="game">
             <ui:Button name="CharPresetBow" class="game__char__container game__char__bow">
                 <ui:VisualElement class="game__char__background" style="background-image: url(&apos;project://database/Assets/Sprites/Main/tilesheet@2.png?fileID=1164940810&amp;guid=e207553ff00da4c4a86ec405585d3fff&amp;type=3#tilesheet@2_125&apos;);" />
@@ -23,5 +23,6 @@
             </ui:Button>
         </ui:VisualElement>
         <ui:ProgressBar name="HealthBar" value="15.88" class="progress-bar" />
+        <ui:Button text="Mute" display-tooltip-when-elided="true" name="MuteButton" class="game__mute__button" />
     </ui:VisualElement>
 </ui:UXML>

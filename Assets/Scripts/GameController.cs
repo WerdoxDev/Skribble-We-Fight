@@ -42,12 +42,14 @@ public class GameController : NetworkBehaviour {
     private Button _swordPresetButton;
     private Button _spearPresetButton;
     private Button _axePresetButton;
+    private Button _muteButton;
     private Label _statusText;
     private Label _titleText;
     private Label _pingText;
 
     private float _timeRemaining;
     private int _lastSelectedPreset = -1;
+    private bool _musicMuted;
     private DateTime _timeBeforePing;
     private readonly Dictionary<ulong, byte> _clientsPreset = new();
     private readonly List<ulong> _playersInGame = new();
@@ -66,14 +68,28 @@ public class GameController : NetworkBehaviour {
         _swordPresetButton = _rootElement.Q<Button>("CharPresetSword");
         _spearPresetButton = _rootElement.Q<Button>("CharPresetSpear");
         _axePresetButton = _rootElement.Q<Button>("CharPresetAxe");
-        _statusText = _rootElement.Q<Label>("StatusText");
+        _muteButton = _rootElement.Q<Button>("MuteButton");
         _titleText = _rootElement.Q<Label>("Title");
-        _pingText = _rootElement.Q<Label>("Ping");
+        _statusText = _rootElement.Q<Label>("StatusText");
+        _pingText = _rootElement.Q<Label>("PingText");
 
         _bowPresetButton.clicked += () => SendPreset(0);
         _swordPresetButton.clicked += () => SendPreset(1);
         _spearPresetButton.clicked += () => SendPreset(2);
         _axePresetButton.clicked += () => SendPreset(3);
+
+        _muteButton.clicked += () => {
+            if (!_musicMuted) {
+                _musicMuted = true;
+                _muteButton.text = "Unmute";
+                AudioController.Instance.SetGameThemeMute(_musicMuted);
+            }
+            else {
+                _musicMuted = false;
+                _muteButton.text = "Mute";
+                AudioController.Instance.SetGameThemeMute(_musicMuted);
+            }
+        };
 
         GameStarted.OnValueChanged += (oldValue, newValue) => {
             if (IsServer) return;

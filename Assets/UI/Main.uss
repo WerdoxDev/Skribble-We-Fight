@@ -39,7 +39,7 @@ TemplateContainer {
 .button:hover {
     transition-property: scale;
     transition-timing-function: ease-in-cubic;
-    transition-duration: 0.115s;
+    transition-duration: 0.125s;
     scale: 1.05 1.05;
 }
 
@@ -124,7 +124,7 @@ TemplateContainer {
 .game__char__container:hover {
     transition-property: scale;
     transition-timing-function: ease-in-cubic;
-    transition-duration: 0.115s;
+    transition-duration: 0.125s;
     scale: 1.1 1.1;
 }
 
@@ -197,4 +197,33 @@ TemplateContainer {
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+.game__mute__button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 15px;
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
+    color: rgb(255, 255, 255);
+    background-color: rgb(74, 105, 189);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    -unity-font-style: bold;
+    transition-property: scale;
+    transition-timing-function: ease-out-cubic;
+    transition-duration: 0.125s;
+}
+
+.game__mute__button:hover {
+    transition-timing-function: ease-in-cubic;
+    transition-duration: 0.125s;
+    transition-property: scale;
+    scale: 1.05 1.05;
 }

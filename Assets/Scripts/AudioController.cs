@@ -25,6 +25,10 @@ public class AudioController : MonoBehaviour {
         StartCoroutine(FadeToGameThemeEnumerator(fadeDuration));
     }
 
+    public void SetGameThemeMute(bool isMuted) {
+        gameTheme.mute = isMuted;
+    }
+
     private IEnumerator FadeToGameThemeEnumerator(float duration) {
         float timeElapsed = 0;
         float startValue = menuTheme.volume;
