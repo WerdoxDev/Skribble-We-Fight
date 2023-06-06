@@ -47,7 +47,7 @@ public class LobbyController : NetworkBehaviour {
             VisualElement playerElement = lobbyPlayerAsset.Instantiate().Q<VisualElement>("LobbyPlayer");
 
             playerElement.Q<Label>("PlayerName").text =
-                $"Player {index + 1} " +
+                $"Player {player.Key + 1} " +
                 $"{(player.Key == NetworkManager.LocalClientId ? "(you)" : player.Key == NetworkManager.ServerClientId ? "(host)" : "")}";
             playerElement.Q<Label>("ReadyStatus").text = player.Value ? "(READY)" : "(NOT READY)";
 

@@ -101,6 +101,26 @@ TemplateContainer {
     transition-duration: 0.115s;
 }
 
+.game__char__bow {
+    background-color: rgb(56, 173, 169);
+}
+
+.game__char__sword {
+    background-color: rgb(74, 105, 189);
+}
+
+.game__char__spear {
+    background-color: rgb(246, 185, 59);
+}
+
+.game__char__axe {
+    background-color: rgb(229, 80, 57);
+}
+
+.game__char__container--disabled {
+    background-color: rgb(128, 128, 128);
+}
+
 .game__char__container:hover {
     transition-property: scale;
     transition-timing-function: ease-in-cubic;
@@ -126,4 +146,55 @@ TemplateContainer {
     -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
     font-size: 25px;
     -unity-text-align: upper-center;
+}
+
+.progress-bar {
+    width: 150px;
+    height: 25px;
+    position: absolute;
+    justify-content: center;
+    align-self: center;
+    bottom: 30%;
+}
+
+.progress-bar #unity-progress-bar {
+    flex-grow: 1;
+}
+
+.unity-progress-bar__background {
+    background-color: rgb(60, 99, 130);
+    flex-grow: 1;
+    border-radius: 5px;
+}
+
+.unity-progress-bar__progress {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(229, 80, 57);
+    margin: 2px;
+    border-radius: 2.5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.game__ping__label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 20px;
+    -unity-font-definition: url('project://database/Assets/Font/FuturaPTMedium%20SDF%201.asset?fileID=11400000&guid=aed3aae809b73294697e675755cec983&type=2#FuturaPTMedium SDF 1');
+    color: rgb(255, 255, 255);
+    background-color: rgb(74, 105, 189);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

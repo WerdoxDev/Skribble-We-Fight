@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3769906863217959237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7697023105784454679}
+  - component: {fileID: 496407087656780403}
+  - component: {fileID: 6377794192138483754}
+  m_Layer: 0
+  m_Name: MapGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7697023105784454679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769906863217959237}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496407087656780403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769906863217959237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: accda089bf860c94488722b9b1093d82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Seed:
+    m_InternalValue: 0
+  mapSize: {x: 30, y: 30}
+  allowedDistanceToBorders: {x: 5, y: 5}
+  allowedDistanceToBuildings: 10
+  bushAllowedDistanceToBuildings: 5
+  minBuildings: 3
+  maxBuildings: 6
+  iterationFailSafe: 1000
+  BushTile:
+    SpriteGO: {fileID: 2338859201603921544, guid: 47ce1a69dca82e14088d2fd1dc4cd09d, type: 3}
+    Chance: 10
+  groundTiles:
+  - SpriteGO: {fileID: 848126404321934019, guid: 6d398bd4f58cff9478b341fdd29855ca, type: 3}
+    Chance: 75
+  - SpriteGO: {fileID: 1798132297983547847, guid: bd98525c2379e4245a49bd27d687fa89, type: 3}
+    Chance: 15
+  - SpriteGO: {fileID: 8752045407260772957, guid: e71b63a057e45fd43b2f56ff9f16fa5e, type: 3}
+    Chance: 10
+  buildingPrefabs:
+  - {fileID: 665046795882550813, guid: 09e7ff13557e84543bccb364e105ed9e, type: 3}
+  - {fileID: 7422681150061235832, guid: c2d88ac874a5b4247ae96ac150641bd9, type: 3}
+  - {fileID: 3749273561250932999, guid: b58af1d0f52c1a74ba971c284906ea28, type: 3}
+  - {fileID: 6130375360778225639, guid: 9ea5905263af1e54eafc0366b647b32a, type: 3}
+  - {fileID: 104506732526130758, guid: 34faea2155a6e50448f2e51470e9592b, type: 3}
+  - {fileID: 6807168270047784923, guid: 7ec24f6fae4343f4b9742fc454dafbb8, type: 3}
+--- !u!114 &6377794192138483754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3769906863217959237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 951099334
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1

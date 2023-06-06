@@ -1,25 +1,27 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Main.uss?fileID=7433441132597879392&amp;guid=7b1c4bbe3a1832840bfb701ecc7ccee2&amp;type=3#Main" />
     <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); height: 100%; width: 100%; justify-content: center;">
-        <ui:Label text="Choose a Preset" name="Title" class="title" style="align-self: center; justify-content: center; position: absolute; top: 120px;" />
-        <ui:Label tabindex="-1" text="Waiting for other players..." display-tooltip-when-elided="true" name="StatusText" class="game__status-text" style="display: none;" />
+        <ui:Label text="Choose A Preset" name="Title" class="title" style="align-self: center; justify-content: center; position: absolute; top: 15%;" />
+        <ui:Label text="Waiting for other players..." name="StatusText" class="game__status-text" style="display: none;" />
+        <ui:Label tabindex="-1" text="Ping: 100ms" display-tooltip-when-elided="true" name="Ping" class="game__ping__label" />
         <ui:VisualElement name="PresetsContainer" class="game">
-            <ui:Button name="CharPresetBow" class="game__char__container" style="background-color: rgb(56, 173, 169);">
+            <ui:Button name="CharPresetBow" class="game__char__container game__char__bow">
                 <ui:VisualElement class="game__char__background" style="background-image: url(&apos;project://database/Assets/Sprites/Main/tilesheet@2.png?fileID=1164940810&amp;guid=e207553ff00da4c4a86ec405585d3fff&amp;type=3#tilesheet@2_125&apos;);" />
                 <ui:Label text="Bow" class="game__char__text" />
             </ui:Button>
-            <ui:Button name="CharPresetSword" class="game__char__container" style="background-color: rgb(74, 105, 189);">
+            <ui:Button name="CharPresetSword" class="game__char__container game__char__sword">
                 <ui:VisualElement class="game__char__background" style="background-image: url(&apos;project://database/Assets/Sprites/Main/tilesheet@2.png?fileID=256622478&amp;guid=e207553ff00da4c4a86ec405585d3fff&amp;type=3#tilesheet@2_122&apos;);" />
                 <ui:Label text="Sword" class="game__char__text" />
             </ui:Button>
-            <ui:Button name="CharPresetSpear" class="game__char__container" style="background-color: rgb(246, 185, 59);">
+            <ui:Button name="CharPresetSpear" class="game__char__container game__char__spear">
                 <ui:VisualElement class="game__char__background" style="background-image: url(&apos;project://database/Assets/Sprites/Main/tilesheet@2.png?fileID=328596826&amp;guid=e207553ff00da4c4a86ec405585d3fff&amp;type=3#tilesheet@2_123&apos;);" />
                 <ui:Label text="Spear" class="game__char__text" />
             </ui:Button>
-            <ui:Button name="CharPresetAxe" class="game__char__container" style="background-color: rgb(229, 80, 57);">
+            <ui:Button name="CharPresetAxe" class="game__char__container game__char__axe">
                 <ui:VisualElement class="game__char__background" style="background-image: url(&apos;project://database/Assets/Sprites/Main/tilesheet@2.png?fileID=1199178468&amp;guid=e207553ff00da4c4a86ec405585d3fff&amp;type=3#tilesheet@2_130&apos;);" />
                 <ui:Label text="Axe" class="game__char__text" />
             </ui:Button>
         </ui:VisualElement>
+        <ui:ProgressBar name="HealthBar" value="15.88" class="progress-bar" />
     </ui:VisualElement>
 </ui:UXML>

@@ -23,6 +23,8 @@ public class MenuController : MonoBehaviour {
 
         _joinButton.clicked += () => JoinGame();
         _hostButton.clicked += () => HostGame();
+
+        AudioController.Instance.PlayMenuTheme();
     }
 
     public void HostGame() {
